@@ -33,7 +33,7 @@ class udtop:
 
     def __str__(self):
         if self.example:
-            return '{}\n\nExample: {}'.format(self.definition, self.example)
+            return '{}\n\nExample:\n{}'.format(self.definition, self.example)
         return self.definition
 
     def __repr__(self):
