@@ -17,8 +17,8 @@ class udtop:
         '''
         Error that is raised when a term is not found in urbandictionary.
         '''
-        def __init__(self):
-            Exception.__init__(self, 'Term not found in urbandictionary!')
+        def __init__(self, term):
+            Exception.__init__(self, term + ' not found in urbandictionary!')
 
     def __init__(self, keyword):
         url = ('http://www.urbandictionary.com/define.php?term={}'
@@ -27,7 +27,7 @@ class udtop:
         soup = BeautifulSoup(raw, 'html5lib')
         top = soup.find(class_="meaning").text
         if "There aren't any definitions for {} yet.".format(keyword) in top:
-            raise self.TermNotFound
+            raise self.TermNotFound(keyword)
         self.definition = top.strip()
         self.example = soup.find(class_="example").text.strip()
 
