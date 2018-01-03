@@ -21,7 +21,7 @@ class udtop:
             Exception.__init__(self, term + ' not found in urbandictionary!')
 
     def __init__(self, keyword):
-        url = ('http://www.urbandictionary.com/define.php?term={}'
+        url = ('https://www.urbandictionary.com/define.php?term={}'
                .format(quote(keyword)))
         raw = requests.get(url).text
         soup = BeautifulSoup(raw, 'html5lib')
