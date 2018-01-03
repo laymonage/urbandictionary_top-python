@@ -28,12 +28,12 @@ class udtop:
         top = soup.find(class_="meaning").text
         if "There aren't any definitions for {} yet.".format(keyword) in top:
             raise self.TermNotFound
-        self.definition = top
-        self.example = soup.find(class_="example").text
+        self.definition = top.strip()
+        self.example = soup.find(class_="example").text.strip()
 
     def __str__(self):
         if self.example:
-            return '{}\n\nExample:\n{}'.format(self.definition, self.example)
+            return self.definition + '\n\nExample:\n' + self.example
         return self.definition
 
     def __repr__(self):
