@@ -25,10 +25,10 @@ class udtop:
                .format(quote(keyword)))
         raw = requests.get(url).text
         soup = BeautifulSoup(raw, 'html5lib')
-        top = soup.find(class_="meaning").text
-        if "There aren't any definitions for {} yet.".format(keyword) in top:
+        top = soup.find(class_="meaning")
+        if not top:
             raise self.TermNotFound(keyword)
-        self.definition = top.strip()
+        self.definition = top.text.strip()
         self.example = soup.find(class_="example").text.strip()
 
     def __str__(self):
