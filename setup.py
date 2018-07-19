@@ -5,7 +5,7 @@ Module setup file.
 from setuptools import setup
 setup(
     name='urbandictionary_top',
-    version='0.2',
+    version='0.3',
     py_modules=['urbandictionary_top'],
     install_requires=[
         'beautifulsoup4',
@@ -19,7 +19,7 @@ setup(
     author_email='laymonage@gmail.com',
     url='https://github.com/laymonage/urbandictionary_top-python',
     download_url=('https://github.com/laymonage/urbandictionary_top-python/'
-                  'archive/0.2.tar.gz'),
+                  'archive/0.3.tar.gz'),
     keywords=['urban', 'dictionary', 'urbandictionary', 'top', 'definition',
               'example'],
     classifiers=[],
